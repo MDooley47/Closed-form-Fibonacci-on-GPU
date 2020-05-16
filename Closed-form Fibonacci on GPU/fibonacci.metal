@@ -18,8 +18,8 @@ unsigned int fibonacci(unsigned int index);
 unsigned int binetsFormula(unsigned int n);
 
 // initialize methods
-kernel void fibonacci(device uint* start,
-                      device uint* result,
+kernel void fibonacci(device unsigned int* start,
+                      device unsigned int* result,
                       unsigned int index [[thread_position_in_grid]])
 {
     result[index] = fibonacci(*start + index);
