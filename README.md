@@ -28,3 +28,6 @@ The GPU calculations are only accurate in the range (0, 33].
 This project could be improved by implementing a arbitrary-precision arithmetic.
 This would require a new data structure on both the Swift and MSL sides.
 And it would need a way to accurately pass the data between the CPU and GPU.
+
+## Notes
+If Metal compiler uses the Fast Math (the `-ffast-math` flag—which it does by default) GPU calculations will not work.
