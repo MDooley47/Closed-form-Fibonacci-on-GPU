@@ -30,4 +30,4 @@ This would require a new data structure on both the Swift and MSL sides.
 And it would need a way to accurately pass the data between the CPU and GPU.
 
 ## Notes
-If Metal compiler uses the Fast Math (the `-ffast-math` flag—which it does by default) GPU calculations will not work.
+If the Metal compiler uses Fast Math (the `-ffast-math` flag—which it does by default) GPU calculations will not work.
