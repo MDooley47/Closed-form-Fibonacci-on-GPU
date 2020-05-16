@@ -27,8 +27,11 @@ kernel void fibonacci(device unsigned int* start,
 
 unsigned int fibonacci(unsigned int index)
 {
-    return binetsFormula(index);
-    
+    if (index == 0) {
+        return 0;
+    } else if (index == 1) {
+        return 1;
+    }
     unsigned int n1 = binetsFormula(index - 1);
     unsigned int n2 = binetsFormula(index - 2);
     
