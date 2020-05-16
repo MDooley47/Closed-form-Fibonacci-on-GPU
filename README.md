@@ -22,7 +22,7 @@ To run on the CPU instead include the CPU flag:
 ## Limitations
 The CPU calculations (using the --cpu flag) are only accurate in the range (0, 70].
 
-The GPU calculations are only accurate in the range (0, 32].
+The GPU calculations are only accurate in the range (0, 33].
 
 ## Improvements
 This project could be improved by implementing a arbitrary-precision arithmetic.

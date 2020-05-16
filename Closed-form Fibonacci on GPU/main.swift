@@ -6,7 +6,7 @@
 //  Copyright © 2020 Matthew Dooley. All rights reserved.
 //
 //  CPU accurate (0, 70] then datatypes start to become annoying
-//  GPU accurate (0, 32] then datatypes start to become annoying
+//  GPU accurate (0, 33] then datatypes start to become annoying
 //
 
 import Foundation
@@ -110,7 +110,7 @@ if Config.cpu {
         }
     }
 } else  {
-    // accurate up to and including 32
+    // accurate up to and including 33
     print("Calculating with GPU")
     
     let device: MTLDevice = MTLCreateSystemDefaultDevice()!
