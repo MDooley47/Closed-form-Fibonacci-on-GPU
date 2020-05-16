@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34432619246F65B800317F3C /* MetalFibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34432618246F65B800317F3C /* MetalFibonacci.swift */; };
+		3443262E246FC7AE00317F3C /* BigInteger in Frameworks */ = {isa = PBXBuildFile; productRef = 3443262D246FC7AE00317F3C /* BigInteger */; };
 		34896A2D246D1F6F00165BCE /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34896A2C246D1F6F00165BCE /* Metal.framework */; };
 		34896A30246D216A00165BCE /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 34896A2F246D216A00165BCE /* ArgumentParser */; };
 		34896A35246D2BF800165BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34896A34246D2BF800165BCE /* main.swift */; };
@@ -42,6 +43,7 @@
 			files = (
 				34896A30246D216A00165BCE /* ArgumentParser in Frameworks */,
 				34896A2D246D1F6F00165BCE /* Metal.framework in Frameworks */,
+				3443262E246FC7AE00317F3C /* BigInteger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +104,7 @@
 			name = "Closed-form Fibonacci on GPU";
 			packageProductDependencies = (
 				34896A2F246D216A00165BCE /* ArgumentParser */,
+				3443262D246FC7AE00317F3C /* BigInteger */,
 			);
 			productName = "Closed-form Fibonacci on GPU";
 			productReference = 34896A21246D1F0700165BCE /* Closed-form Fibonacci on GPU */;
@@ -134,6 +137,7 @@
 			mainGroup = 34896A18246D1F0700165BCE;
 			packageReferences = (
 				34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				3443262C246FC7AE00317F3C /* XCRemoteSwiftPackageReference "Swift-BigInt" */,
 			);
 			productRefGroup = 34896A22246D1F0700165BCE /* Products */;
 			projectDirPath = "";
@@ -330,6 +334,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3443262C246FC7AE00317F3C /* XCRemoteSwiftPackageReference "Swift-BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MDooley47/Swift-BigInt/";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
@@ -341,6 +353,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3443262D246FC7AE00317F3C /* BigInteger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3443262C246FC7AE00317F3C /* XCRemoteSwiftPackageReference "Swift-BigInt" */;
+			productName = BigInteger;
+		};
 		34896A2F246D216A00165BCE /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

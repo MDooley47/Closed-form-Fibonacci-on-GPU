@@ -13,6 +13,7 @@ import Foundation
 import ArgumentParser
 import Metal
 import Darwin
+import BigInteger
 
 // get command line arguments
 struct FibonacciOptions: ParsableArguments {
@@ -47,22 +48,9 @@ if (Config.index < 0) {
     Darwin.exit(1)
 }
 
-extension Double {
-    func toString(decimalPrecision decimal: Int = 9) -> String {
-        let value = decimal < 0 ? 0 : decimal
-        var string = String(format: "%.\(value)f", self)
-
-        while string.last == "." {
-            if string.last == "." { string = String(string.dropLast()); break}
-            string = String(string.dropLast())
-        }
-        return string
-    }
-}
-
-func fibonacciRange(_ start: Int, to end: Int) -> [Double]
+func fibonacciRange(_ start: Int, to end: Int) -> [BInt]
 {
-    var output: [Double] = []
+    var output: [BInt] = []
     
     for i in start...end
     {
@@ -72,27 +60,31 @@ func fibonacciRange(_ start: Int, to end: Int) -> [Double]
     return output
 }
 
-func fibonacciCPU(_ n: Int) -> Double
+func fibonacciCPU(_ n: Int) -> BInt
 {
-    let n = Double(n)
+    let sqrt5: BDouble = BDouble(5).squareRoot()
+    let goldenRatio: BDouble = ((1 + sqrt5) / 2)
+    let psi: BDouble = (1 - goldenRatio)
+
     let n1 = n - 1
     let n2 = n1 - 1
     
-    let resultn1 = binetsFormula(n1)
-    let resultn2 = binetsFormula(n2)
+    let resultn1 = floorFormula(n1, goldenRatio: goldenRatio, psi: psi, sqrt5: sqrt5)
+    let resultn2 = floorFormula(n2, goldenRatio: goldenRatio, psi: psi, sqrt5: sqrt5)
 
     let result = resultn1 + resultn2
     return result
 }
 
-func binetsFormula(_ nth: Double) -> Double
+func binetsFormula(_ nth: Int, goldenRatio: BDouble, psi: BDouble, sqrt5: BDouble) -> BInt
 {
-    let goldenRatio = ((1 + Double(5).squareRoot()) / 2)
-    let psi = (1 - goldenRatio)
+    return floor((pow(goldenRatio, nth) - pow(psi, nth))
+            / sqrt5)
+}
 
-    return Double(
-        (pow(goldenRatio, nth) - pow(psi, nth))
-            / (Double(5).squareRoot()))
+func floorFormula(_ nth: Int, goldenRatio: BDouble, psi: BDouble, sqrt5: BDouble) -> BInt
+{
+    return floor((pow(goldenRatio, nth) / sqrt5) + 0.5)
 }
 
 if Config.cpu {
@@ -100,12 +92,12 @@ if Config.cpu {
     print("Calculating with CPU")
     
     if !Config.range {
-        print("\(Config.index): \(fibonacciCPU(Config.index).toString(decimalPrecision: 0))")
+        print("\(Config.index): \(fibonacciCPU(Config.index))")
     } else {
         var current: Int = Config.start!
         for i in fibonacciRange(Config.start!, to: Config.index)
         {
-            print("\(current): \(i.toString(decimalPrecision: 0))")
+            print("\(current): \(i)")
             current += 1
         }
     }
