@@ -20,7 +20,7 @@ To run on the CPU instead include the CPU flag:
 ```
 
 ## Limitations
-The CPU calculations (using the --cpu flag) are only accurate in the range (0, 70].
+The CPU calculations (using the --cpu flag) are only accurate in the range (0, 56].
 
 The GPU calculations are only accurate in the range (0, 33].
 

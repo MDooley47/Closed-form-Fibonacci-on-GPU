@@ -57,10 +57,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--cpu"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "1000"
+            argument = "100"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

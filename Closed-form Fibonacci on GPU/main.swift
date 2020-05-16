@@ -5,7 +5,7 @@
 //  Created by Matthew Dooley on 5/14/20.
 //  Copyright © 2020 Matthew Dooley. All rights reserved.
 //
-//  CPU accurate (0, 70] then datatypes start to become annoying
+//  CPU accurate (0, 56] then datatypes start to become annoying
 //  GPU accurate (0, 33] then datatypes start to become annoying
 //
 
@@ -78,8 +78,7 @@ func fibonacciCPU(_ n: Int) -> BInt
 
 func binetsFormula(_ nth: Int, goldenRatio: BDouble, psi: BDouble, sqrt5: BDouble) -> BInt
 {
-    return floor((pow(goldenRatio, nth) - pow(psi, nth))
-            / sqrt5)
+    return ((pow(goldenRatio, nth) - pow(psi, nth)) / sqrt5).rounded()
 }
 
 func floorFormula(_ nth: Int, goldenRatio: BDouble, psi: BDouble, sqrt5: BDouble) -> BInt
@@ -88,7 +87,7 @@ func floorFormula(_ nth: Int, goldenRatio: BDouble, psi: BDouble, sqrt5: BDouble
 }
 
 if Config.cpu {
-    // accurate up to and including 70
+    // accurate up to and including 56
     print("Calculating with CPU")
     
     if !Config.range {
