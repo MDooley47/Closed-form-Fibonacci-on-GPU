@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34896A25246D1F0700165BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34896A24246D1F0700165BCE /* main.swift */; };
+		34432619246F65B800317F3C /* MetalFibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34432618246F65B800317F3C /* MetalFibonacci.swift */; };
+		34896A2D246D1F6F00165BCE /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34896A2C246D1F6F00165BCE /* Metal.framework */; };
+		34896A30246D216A00165BCE /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 34896A2F246D216A00165BCE /* ArgumentParser */; };
+		34896A35246D2BF800165BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34896A34246D2BF800165BCE /* main.swift */; };
+		34896A37246D3F3900165BCE /* fibonacci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 34896A36246D3F3900165BCE /* fibonacci.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		34432618246F65B800317F3C /* MetalFibonacci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalFibonacci.swift; sourceTree = "<group>"; };
 		34896A21246D1F0700165BCE /* Closed-form Fibonacci on GPU */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Closed-form Fibonacci on GPU"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34896A24246D1F0700165BCE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		34896A2C246D1F6F00165BCE /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		34896A34246D2BF800165BCE /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		34896A36246D3F3900165BCE /* fibonacci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = fibonacci.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34896A30246D216A00165BCE /* ArgumentParser in Frameworks */,
+				34896A2D246D1F6F00165BCE /* Metal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				34896A23246D1F0700165BCE /* Closed-form Fibonacci on GPU */,
 				34896A22246D1F0700165BCE /* Products */,
+				34896A2B246D1F6F00165BCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +67,19 @@
 		34896A23246D1F0700165BCE /* Closed-form Fibonacci on GPU */ = {
 			isa = PBXGroup;
 			children = (
-				34896A24246D1F0700165BCE /* main.swift */,
+				34896A34246D2BF800165BCE /* main.swift */,
+				34896A36246D3F3900165BCE /* fibonacci.metal */,
+				34432618246F65B800317F3C /* MetalFibonacci.swift */,
 			);
 			path = "Closed-form Fibonacci on GPU";
+			sourceTree = "<group>";
+		};
+		34896A2B246D1F6F00165BCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34896A2C246D1F6F00165BCE /* Metal.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +98,9 @@
 			dependencies = (
 			);
 			name = "Closed-form Fibonacci on GPU";
+			packageProductDependencies = (
+				34896A2F246D216A00165BCE /* ArgumentParser */,
+			);
 			productName = "Closed-form Fibonacci on GPU";
 			productReference = 34896A21246D1F0700165BCE /* Closed-form Fibonacci on GPU */;
 			productType = "com.apple.product-type.tool";
@@ -94,6 +117,7 @@
 				TargetAttributes = {
 					34896A20246D1F0700165BCE = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -106,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 34896A18246D1F0700165BCE;
+			packageReferences = (
+				34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 34896A22246D1F0700165BCE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34896A25246D1F0700165BCE /* main.swift in Sources */,
+				34896A37246D3F3900165BCE /* fibonacci.metal in Sources */,
+				34432619246F65B800317F3C /* MetalFibonacci.swift in Sources */,
+				34896A35246D2BF800165BCE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +208,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_FAST_MATH = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -233,7 +262,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
+				MTL_FAST_MATH = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -243,10 +272,17 @@
 		34896A29246D1F0700165BCE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RUZM7ULTJ2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,9 +290,15 @@
 		34896A2A246D1F0700165BCE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RUZM7ULTJ2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -284,6 +326,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		34896A2F246D216A00165BCE /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34896A2E246D216A00165BCE /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34896A19246D1F0700165BCE /* Project object */;
 }
