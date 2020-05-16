@@ -28,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		34432618246F65B800317F3C /* MetalFibonacci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalFibonacci.swift; sourceTree = "<group>"; };
+		3443261A246FA51700317F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		34896A21246D1F0700165BCE /* Closed-form Fibonacci on GPU */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Closed-form Fibonacci on GPU"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34896A2C246D1F6F00165BCE /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		34896A34246D2BF800165BCE /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		34896A18246D1F0700165BCE = {
 			isa = PBXGroup;
 			children = (
+				3443261A246FA51700317F3C /* README.md */,
 				34896A23246D1F0700165BCE /* Closed-form Fibonacci on GPU */,
 				34896A22246D1F0700165BCE /* Products */,
 				34896A2B246D1F6F00165BCE /* Frameworks */,
